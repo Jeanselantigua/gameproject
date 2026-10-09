@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bentiiel0k1a3"]
+
+[ext_resource type="Texture2D" uid="uid://unteh2atn2yc" path="res://Art/slime.png" id="1_e8a42"]
+
+[node name="BattleEnemy" type="TextureButton" unique_id=1571440385]
+offset_left = 667.0
+offset_top = 201.0
+offset_right = 699.0
+offset_bottom = 233.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_e8a42")

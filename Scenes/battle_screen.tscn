@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://bnmqsxtwv7i0x"]
+
+[ext_resource type="Theme" uid="uid://benjwer1pjuyy" path="res://Themes/default_theme.tres" id="1_4vnsc"]
+[ext_resource type="Script" path="res://Scenes/battle_screen.gd" id="2_tjlxq"]
+
+[node name="BattleScreen" type="Control" unique_id=1039051072]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4vnsc")
+script = ExtResource("2_tjlxq")
+
+[node name="Background" type="ColorRect" parent="." unique_id=306608380]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.07058824, 0.08627451, 0.10980392, 1)
+
+[node name="Header" type="Label" parent="." unique_id=1454523590]
+layout_mode = 0
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 12.0
+offset_right = -24.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "Your team  vs  AI team"
+
+[node name="Log" type="Label" parent="." unique_id=491398547]
+layout_mode = 0
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 52.0
+offset_right = -280.0
+offset_bottom = 156.0
+grow_horizontal = 2
+autowrap_mode = 3
+
+[node name="Body" type="HBoxContainer" parent="." unique_id=693959120]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 164.0
+offset_right = -16.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Teams" type="VBoxContainer" parent="Body" unique_id=556535288]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PlayerTitle" type="Label" parent="Body/Teams" unique_id=823497038]
+layout_mode = 2
+text = "Your team"
+
+[node name="PlayerTeam" type="HBoxContainer" parent="Body/Teams" unique_id=2118830661]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="EnemyTitle" type="Label" parent="Body/Teams" unique_id=1353256180]
+layout_mode = 2
+text = "AI team"
+
+[node name="EnemyTeam" type="HBoxContainer" parent="Body/Teams" unique_id=1493102012]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="QueuePanel" type="VBoxContainer" parent="Body" unique_id=840848619]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="QueueTitle" type="Label" parent="Body/QueuePanel" unique_id=598470487]
+layout_mode = 2
+text = "Turn order"
+
+[node name="QueueBox" type="VBoxContainer" parent="Body/QueuePanel" unique_id=1879465598]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="." unique_id=193494020]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -140.0
+offset_right = -24.0
+offset_bottom = -108.0
+grow_horizontal = 2
+
+[node name="MoveBox" type="HFlowContainer" parent="." unique_id=1984505475]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -100.0
+offset_right = -24.0
+offset_bottom = -12.0
+grow_horizontal = 2
+
+[node name="ResultPanel" type="PanelContainer" parent="." unique_id=1589679038]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -110.0
+offset_right = 200.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultMargin" type="MarginContainer" parent="ResultPanel" unique_id=238899436]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 16
+
+[node name="ResultColumn" type="VBoxContainer" parent="ResultPanel/ResultMargin" unique_id=1137622787]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ResultLabel" type="Label" parent="ResultPanel/ResultMargin/ResultColumn" unique_id=1080113539]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Result"
+horizontal_alignment = 1
+
+[node name="AgainButton" type="Button" parent="ResultPanel/ResultMargin/ResultColumn" unique_id=26514655]
+layout_mode = 2
+text = "Fight again"
+
+[node name="TitleButton" type="Button" parent="ResultPanel/ResultMargin/ResultColumn" unique_id=916518165]
+layout_mode = 2
+text = "Change teams"

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://4ff6qacge08n"]
+
+[ext_resource type="Script" uid="uid://bjftenfpg75f2" path="res://Scenes/fighter_card.gd" id="1_3c83e"]
+[ext_resource type="Texture2D" uid="uid://c65basoedrmfr" path="res://Art/MonkV0-Recovered.png" id="2_0ybrd"]
+
+[node name="FighterCard" type="Control" unique_id=2099544360]
+custom_minimum_size = Vector2(200, 260)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+script = ExtResource("1_3c83e")
+
+[node name="Panel" type="Panel" parent="." unique_id=1739972205]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ring" type="ColorRect" parent="." unique_id=1946986478]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 190.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Column" type="VBoxContainer" parent="." unique_id=1955698627]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 18.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Portrait" type="TextureRect" parent="Column" unique_id=121811076]
+custom_minimum_size = Vector2(160, 110)
+layout_mode = 2
+texture = ExtResource("2_0ybrd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="Column" unique_id=1765118412]
+layout_mode = 2
+text = "Fighter"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HpBar" type="ProgressBar" parent="Column" unique_id=1174142727]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="HpLabel" type="Label" parent="Column" unique_id=760345762]
+layout_mode = 2
+text = "HP"
+horizontal_alignment = 1
+
+[node name="AffinityLabel" type="Label" parent="Column" unique_id=336340707]
+layout_mode = 2
+text = "Element"
+horizontal_alignment = 1
+
+[node name="Floater" type="Label" parent="." unique_id=1865755316]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = -4.0
+offset_bottom = 22.0
+horizontal_alignment = 1

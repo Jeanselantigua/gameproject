@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://yyvex0agnty1"]
+
+[ext_resource type="Texture2D" uid="uid://c65basoedrmfr" path="res://Art/MonkV0-Recovered.png" id="1_2pf0b"]
+
+[node name="BattlePlayer" type="TextureButton" unique_id=1976796381]
+offset_left = 197.0
+offset_top = 155.0
+offset_right = 261.0
+offset_bottom = 219.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("1_2pf0b")

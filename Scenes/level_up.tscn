@@ -1,0 +1,303 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://Scenes/level_up.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://benjwer1pjuyy" path="res://Themes/default_theme.tres" id="2_theme"]
+[ext_resource type="FontFile" uid="uid://dohn6cbf4c2n0" path="res://Art/fonts/Cinzel-Regular.ttf" id="3_font"]
+[ext_resource type="PackedScene" path="res://Scenes/armor_slot.tscn" id="4_slot"]
+[ext_resource type="Texture2D" uid="uid://clsewukv2l1lx" path="res://Art/fighters/roeseph.png" id="5_portrait"]
+[ext_resource type="PackedScene" path="res://Scenes/stat_plus.tscn" id="6_plus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frame"]
+bg_color = Color(0.09, 0.075, 0.055, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72, 0.56, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="LevelUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0.02, 0.015, 0.01, 0.72)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -286.0
+offset_right = 520.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_frame")
+
+[node name="Column" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = -16.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.74, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.04, 0.03, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+text = "Level Up"
+horizontal_alignment = 1
+
+[node name="Body" type="HBoxContainer" parent="Panel/Column"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="PartyColumn" type="VBoxContainer" parent="Panel/Column/Body"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PartyLabel" type="Label" parent="Panel/Column/Body/PartyColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.7, 0.52, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 14
+text = "Party"
+
+[node name="Members" type="VBoxContainer" parent="Panel/Column/Body/PartyColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="Doll" type="Control" parent="Panel/Column/Body"]
+custom_minimum_size = Vector2(400, 430)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Portrait" type="TextureRect" parent="Panel/Column/Body/Doll"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 78.0
+offset_right = 282.0
+offset_bottom = 328.0
+mouse_filter = 2
+texture = ExtResource("5_portrait")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Helm" parent="Panel/Column/Body/Doll" instance=ExtResource("4_slot")]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 8.0
+offset_right = 243.0
+offset_bottom = 70.0
+slot_name = "Helm"
+
+[node name="Amulet" parent="Panel/Column/Body/Doll" instance=ExtResource("4_slot")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 96.0
+offset_right = 386.0
+offset_bottom = 158.0
+slot_name = "Amulet"
+
+[node name="Chest" parent="Panel/Column/Body/Doll" instance=ExtResource("4_slot")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 188.0
+offset_right = 386.0
+offset_bottom = 250.0
+slot_name = "Chest"
+
+[node name="Gloves" parent="Panel/Column/Body/Doll" instance=ExtResource("4_slot")]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 188.0
+offset_right = 100.0
+offset_bottom = 250.0
+slot_name = "Gloves"
+
+[node name="Ring" parent="Panel/Column/Body/Doll" instance=ExtResource("4_slot")]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 280.0
+offset_right = 100.0
+offset_bottom = 342.0
+slot_name = "Ring"
+
+[node name="Boots" parent="Panel/Column/Body/Doll" instance=ExtResource("4_slot")]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 360.0
+offset_right = 243.0
+offset_bottom = 422.0
+slot_name = "Boots"
+
+[node name="Stats" type="VBoxContainer" parent="Panel/Column/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="Panel/Column/Body/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.92, 0.82, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Fighter   Lv 1"
+autowrap_mode = 3
+
+[node name="PointsLabel" type="Label" parent="Panel/Column/Body/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.78, 0.42, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 15
+text = "Stat points  0"
+
+[node name="StatList" type="VBoxContainer" parent="Panel/Column/Body/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="Hp" type="HBoxContainer" parent="Panel/Column/Body/Stats/StatList"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/Column/Body/Stats/StatList/Hp"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "HP    —"
+
+[node name="Plus" parent="Panel/Column/Body/Stats/StatList/Hp" instance=ExtResource("6_plus")]
+layout_mode = 2
+
+[node name="Attack" type="HBoxContainer" parent="Panel/Column/Body/Stats/StatList"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/Column/Body/Stats/StatList/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Attack    —"
+
+[node name="Plus" parent="Panel/Column/Body/Stats/StatList/Attack" instance=ExtResource("6_plus")]
+layout_mode = 2
+
+[node name="Defense" type="HBoxContainer" parent="Panel/Column/Body/Stats/StatList"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/Column/Body/Stats/StatList/Defense"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Defense    —"
+
+[node name="Plus" parent="Panel/Column/Body/Stats/StatList/Defense" instance=ExtResource("6_plus")]
+layout_mode = 2
+
+[node name="MagicAttack" type="HBoxContainer" parent="Panel/Column/Body/Stats/StatList"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/Column/Body/Stats/StatList/MagicAttack"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Magic Attack    —"
+
+[node name="Plus" parent="Panel/Column/Body/Stats/StatList/MagicAttack" instance=ExtResource("6_plus")]
+layout_mode = 2
+
+[node name="MagicDefense" type="HBoxContainer" parent="Panel/Column/Body/Stats/StatList"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/Column/Body/Stats/StatList/MagicDefense"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Magic Defense    —"
+
+[node name="Plus" parent="Panel/Column/Body/Stats/StatList/MagicDefense" instance=ExtResource("6_plus")]
+layout_mode = 2
+
+[node name="Speed" type="HBoxContainer" parent="Panel/Column/Body/Stats/StatList"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/Column/Body/Stats/StatList/Speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Speed    —"
+
+[node name="Plus" parent="Panel/Column/Body/Stats/StatList/Speed" instance=ExtResource("6_plus")]
+layout_mode = 2
+
+[node name="Hint" type="Label" parent="Panel/Column/Body/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.64, 0.52, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 13
+text = "A star marks a specialty. Those points grow further."
+autowrap_mode = 3
+
+[node name="Continue" type="Button" parent="Panel/Column/Body/Stats"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Continue"
+
+[connection signal="pressed" from="Panel/Column/Body/Stats/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/Column/Body/Stats/StatList/Hp/Plus" to="." method="_on_hp_pressed"]
+[connection signal="pressed" from="Panel/Column/Body/Stats/StatList/Attack/Plus" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Panel/Column/Body/Stats/StatList/Defense/Plus" to="." method="_on_defense_pressed"]
+[connection signal="pressed" from="Panel/Column/Body/Stats/StatList/MagicAttack/Plus" to="." method="_on_magic_attack_pressed"]
+[connection signal="pressed" from="Panel/Column/Body/Stats/StatList/MagicDefense/Plus" to="." method="_on_magic_defense_pressed"]
+[connection signal="pressed" from="Panel/Column/Body/Stats/StatList/Speed/Plus" to="." method="_on_speed_pressed"]

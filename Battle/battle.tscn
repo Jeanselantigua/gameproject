@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://c550iaf6cj6e4"]
+
+[ext_resource type="Theme" uid="uid://benjwer1pjuyy" path="res://Themes/default_theme.tres" id="1_ksnli"]
+[ext_resource type="Script" uid="uid://bicmblmognv2h" path="res://Battle/battle.gd" id="2_do635"]
+[ext_resource type="PackedScene" uid="uid://co2rf1t2n8o0t" path="res://Scenes/window_default.tscn" id="2_o5tja"]
+[ext_resource type="Texture2D" uid="uid://c7piafxslvepn" path="res://Art/forest_road.jpg" id="3_bjo3u"]
+[ext_resource type="Script" uid="uid://6sfbvmqpun3l" path="res://Scripts/menu.gd" id="4_0lqow"]
+[ext_resource type="PackedScene" uid="uid://yyvex0agnty1" path="res://Scenes/battle_player.tscn" id="4_ploow"]
+[ext_resource type="PackedScene" uid="uid://bentiiel0k1a3" path="res://Scenes/battle_enemy.tscn" id="5_0lqow"]
+[ext_resource type="PackedScene" path="res://Scenes/level_up.tscn" id="6_level"]
+[ext_resource type="PackedScene" path="res://Scenes/gear_screen.tscn" id="7_gear"]
+[ext_resource type="PackedScene" path="res://Scenes/loot_notice.tscn" id="8_loot"]
+
+[node name="Battle" type="Control" unique_id=31633018]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ksnli")
+script = ExtResource("2_do635")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2087193346]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_bjo3u")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2024242134]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07986111
+anchor_top = 0.8302469
+anchor_right = 0.8784722
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Actions" parent="HBoxContainer" unique_id=2009226908 instance=ExtResource("2_o5tja")]
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+
+[node name="Roster" type="GridContainer" parent="HBoxContainer/Actions" unique_id=588109593]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Log" type="RichTextLabel" parent="HBoxContainer/Actions" unique_id=1051328530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_following = true
+
+[node name="Enemies" parent="HBoxContainer" unique_id=369769500 instance=ExtResource("2_o5tja")]
+layout_mode = 2
+
+[node name="Options" parent="." unique_id=368698289 instance=ExtResource("2_o5tja")]
+custom_minimum_size = Vector2(0, 126)
+layout_mode = 0
+offset_left = 706.0
+offset_top = 522.0
+offset_right = 1012.0
+offset_bottom = 648.0
+
+[node name="Options" type="VBoxContainer" parent="Options" unique_id=1502287269]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.155
+offset_top = 8.49
+offset_right = 0.15499878
+offset_bottom = 8.490189
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_0lqow")
+
+[node name="Button" type="Button" parent="Options/Options" unique_id=1152097594]
+layout_mode = 2
+text = "Do Combat"
+
+[node name="Button2" type="Button" parent="Options/Options" unique_id=235185613]
+layout_mode = 2
+text = "Item"
+
+[node name="Button3" type="Button" parent="Options/Options" unique_id=961321891]
+layout_mode = 2
+text = "Question"
+
+[node name="Button4" type="Button" parent="Options/Options" unique_id=1949131387]
+layout_mode = 2
+text = "Pass"
+
+[node name="Players" type="Control" parent="." unique_id=1451767685]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BattlePlayer3" parent="Players" unique_id=1976796381 instance=ExtResource("4_ploow")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.171
+anchor_top = 0.23900001
+anchor_right = 0.254
+anchor_bottom = 0.38700002
+offset_left = 0.0079956055
+offset_top = 0.12799072
+offset_right = -31.608002
+offset_bottom = -31.776016
+
+[node name="BattlePlayerUpper" parent="Players" unique_id=1819219059 instance=ExtResource("4_ploow")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 52.0
+offset_right = 142.0
+offset_bottom = 116.0
+
+[node name="BattlePlayerLower" parent="Players" unique_id=1815581627 instance=ExtResource("4_ploow")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 292.0
+offset_right = 142.0
+offset_bottom = 356.0
+
+[node name="RightSide" type="Control" parent="." unique_id=149149898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BattleEnemy" parent="RightSide" unique_id=1571440385 instance=ExtResource("5_0lqow")]
+layout_mode = 0
+offset_left = 633.99994
+offset_top = 211.99998
+offset_right = 665.99994
+offset_bottom = 243.99998
+
+[node name="BattleEnemy2" parent="RightSide" unique_id=928669692 instance=ExtResource("5_0lqow")]
+layout_mode = 0
+offset_left = 793.00006
+offset_top = 87.00001
+offset_right = 825.00006
+offset_bottom = 119.00001
+
+[node name="BattleEnemy3" parent="RightSide" unique_id=1134425789 instance=ExtResource("5_0lqow")]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 312.0
+offset_right = 827.0
+offset_bottom = 344.0
+
+[node name="TurnOrder" parent="." unique_id=336695901 instance=ExtResource("2_o5tja")]
+visible = false
+layout_mode = 0
+offset_left = 940.0
+offset_top = 16.0
+offset_right = 1136.0
+offset_bottom = 296.0
+size_flags_horizontal = 0
+mouse_filter = 0
+
+[node name="LevelUp" parent="." instance=ExtResource("6_level")]
+visible = false
+z_index = 40
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GearScreen" parent="." instance=ExtResource("7_gear")]
+visible = false
+z_index = 40
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LootNotice" parent="." instance=ExtResource("8_loot")]
+visible = false
+z_index = 45
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

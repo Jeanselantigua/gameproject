@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="FontFile" uid="uid://dohn6cbf4c2n0" path="res://Art/fonts/Cinzel-Regular.ttf" id="1_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.22, 0.16, 0.08, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.86, 0.7, 0.36, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+
+[node name="PartyMember" type="Button"]
+custom_minimum_size = Vector2(150, 36)
+theme_override_colors/font_color = Color(0.9, 0.86, 0.74, 1)
+theme_override_colors/font_pressed_color = Color(0.95, 0.82, 0.45, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+toggle_mode = true
+clip_text = true
+text = "Hero"

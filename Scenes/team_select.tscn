@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://b8hg611wxrixa"]
+
+[ext_resource type="Theme" uid="uid://benjwer1pjuyy" path="res://Themes/default_theme.tres" id="1_irtk0"]
+[ext_resource type="Script" uid="uid://bxp8r8atbqokl" path="res://Scenes/team_select.gd" id="2_srwfa"]
+
+[node name="TeamSelect" type="Control" unique_id=183810333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_irtk0")
+script = ExtResource("2_srwfa")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1351282365]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.07058824, 0.08627451, 0.10980392, 1)
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1567216205]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 28
+
+[node name="Column" type="VBoxContainer" parent="Margin" unique_id=664738051]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Margin/Column" unique_id=154875207]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pick your team"
+
+[node name="Hint" type="Label" parent="Margin/Column" unique_id=1880796412]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Choose 1 to 3 fighters."
+
+[node name="Roster" type="GridContainer" parent="Margin/Column" unique_id=1116120895]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="Fighter0" type="Button" parent="Margin/Column/Roster" unique_id=1103316720]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "Mechanized Champion"
+
+[node name="Fighter1" type="Button" parent="Margin/Column/Roster" unique_id=1853967584]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "Rogue"
+
+[node name="Fighter2" type="Button" parent="Margin/Column/Roster" unique_id=50192288]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "Roeseph"
+
+[node name="Fighter3" type="Button" parent="Margin/Column/Roster" unique_id=196881766]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "Randy"
+
+[node name="Fighter4" type="Button" parent="Margin/Column/Roster" unique_id=244068758]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "Chefromancer"
+
+[node name="Fighter5" type="Button" parent="Margin/Column/Roster" unique_id=1771271819]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "Okirik"
+
+[node name="Fighter6" type="Button" parent="Margin/Column/Roster" unique_id=309880938]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "WEWE Head"
+
+[node name="Fighter7" type="Button" parent="Margin/Column/Roster" unique_id=837761012]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "Sion"
+
+[node name="Fighter8" type="Button" parent="Margin/Column/Roster" unique_id=593742843]
+custom_minimum_size = Vector2(280, 52)
+layout_mode = 2
+text = "Dual Swordsman"
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Column" unique_id=315815607]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="BackButton" type="Button" parent="Margin/Column/Footer" unique_id=511355563]
+custom_minimum_size = Vector2(160, 48)
+layout_mode = 2
+text = "Back"
+
+[node name="ContinueButton" type="Button" parent="Margin/Column/Footer" unique_id=1492604276]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "Continue"

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cxtsl5fbens66"]
+
+[ext_resource type="Theme" uid="uid://benjwer1pjuyy" path="res://Themes/default_theme.tres" id="1_3dryh"]
+[ext_resource type="Script" path="res://Scenes/game.gd" id="2_wowpa"]
+[ext_resource type="PackedScene" uid="uid://b8hg611wxrixa" path="res://Scenes/team_select.tscn" id="3_i6g32"]
+[ext_resource type="PackedScene" uid="uid://bnmqsxtwv7i0x" path="res://Scenes/battle_screen.tscn" id="4_1l0tm"]
+
+[node name="Game" type="Control" unique_id=1794481857]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3dryh")
+script = ExtResource("2_wowpa")
+
+[node name="TeamSelect" parent="." unique_id=183810333 instance=ExtResource("3_i6g32")]
+layout_mode = 1
+
+[node name="BattleScreen" parent="." unique_id=1039051072 instance=ExtResource("4_1l0tm")]
+layout_mode = 1
