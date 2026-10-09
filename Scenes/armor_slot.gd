@@ -6,6 +6,12 @@ extends Panel
 
 signal slot_pressed(slot_id: String)
 
+const EMPTY_BORDER := Color(0.62, 0.48, 0.26)
+const EMPTY_TEXT := Color(0.78, 0.7, 0.52)
+const WORN_TEXT := Color(0.95, 0.92, 0.84)
+const EMPTY_FILL := Color(0.08, 0.07, 0.06, 0.85)
+const SELECTED_FILL := Color(0.26, 0.19, 0.09, 0.95)
+
 @export var slot_name := "Helm":
 	set(value):
 		slot_name = value
@@ -25,10 +31,20 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event()
 
 
-func show_piece(caption: String, selected: bool, color: Color = Color(0.78, 0.7, 0.52)) -> void:
+## An empty slot keeps the scene's thin bronze border. A worn piece gets a thicker border in its rarity color.
+func show_piece(caption: String, selected: bool, rarity_color: Variant = null) -> void:
 	$Label.text = caption
-	$Label.add_theme_color_override("font_color", color)
-	modulate = Color(1.2, 1.08, 0.75) if selected else Color.WHITE
+	var frame := get_theme_stylebox("panel").duplicate() as StyleBoxFlat
+	if rarity_color == null:
+		frame.border_color = EMPTY_BORDER
+		frame.set_border_width_all(1)
+		$Label.add_theme_color_override("font_color", EMPTY_TEXT)
+	else:
+		frame.border_color = rarity_color
+		frame.set_border_width_all(2)
+		$Label.add_theme_color_override("font_color", WORN_TEXT)
+	frame.bg_color = SELECTED_FILL if selected else EMPTY_FILL
+	add_theme_stylebox_override("panel", frame)
 
 
 func _paint() -> void:

@@ -439,10 +439,11 @@ func _finish_dungeon_fight() -> void:
 	dungeon_room += 1
 	if dungeon_room >= Enemies.FLOORS:
 		_add_log("Floor 100 falls. The dungeon is cleared.")
-		_set_menu(["Leave"])
+		_set_menu(["Gear", "Leave"])
 		return
 	_add_log(Enemies.room_blurb(dungeon_room))
-	_set_menu(["Next floor", "Leave"])
+	_add_log("Open Gear to equip, upgrade, or sell pieces before the next floor.")
+	_set_menu(["Next floor", "Gear", "Leave"])
 
 
 func _needs_level_up() -> bool:
@@ -660,6 +661,8 @@ func _on_Options_pressed(button: BaseButton) -> void:
 		if run_kind == "dungeon":
 			if label == "Next floor":
 				_begin_dungeon_room()
+			elif label == "Gear":
+				_open_gear()
 			elif label == "Leave":
 				_show_mode()
 			return

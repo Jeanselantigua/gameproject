@@ -35,6 +35,7 @@ var _hero := ""
 var _slot := "helm"
 var _bag_uid := -1
 var _live: Dictionary = {}
+var _party: Array[String] = []
 var _hero_group := ButtonGroup.new()
 var _bag_group := ButtonGroup.new()
 var _notice := ""
@@ -43,12 +44,16 @@ var _notice := ""
 func open(live: Array = []) -> void:
 	GearBook.load_book()
 	_live.clear()
+	_party.clear()
 	for hero in live:
 		var battler := hero as Battler
-		if battler != null and battler.side == "player":
+		if battler != null and battler.side == "player" and Roster.ids().has(battler.display_name):
 			_live[battler.display_name] = battler
-	if _hero == "" or not Roster.ids().has(_hero):
-		_hero = Roster.ids()[0]
+			_party.append(battler.display_name)
+	if _party.is_empty():
+		_party = Roster.ids()
+	if not _party.has(_hero):
+		_hero = _party[0]
 	_bag_uid = -1
 	detail.text = "Pick a slot, then a piece from the bag."
 	visible = true
@@ -126,7 +131,7 @@ func _refresh() -> void:
 func _refresh_party() -> void:
 	for child in members.get_children():
 		child.free()
-	for id in Roster.ids():
+	for id in _party:
 		var button := MEMBER_SCENE.instantiate() as Button
 		button.text = id
 		button.button_group = _hero_group
@@ -152,12 +157,11 @@ func _refresh_doll() -> void:
 		var slot_id := str(slot_name).to_lower()
 		var slot: Node = doll.get_node(str(slot_name))
 		var worn := GearBook.piece_on(_hero, slot_id)
-		var caption := "%s\nEmpty" % slot_name
-		var color := Color(0.78, 0.7, 0.52)
-		if worn != null:
-			caption = "%s\n+%d" % [GearBook.rarity_label(worn.rarity), worn.level]
-			color = GearBook.rarity_color(worn.rarity)
-		slot.show_piece(caption, slot_id == _slot, color)
+		if worn == null:
+			slot.show_piece("%s\nEmpty" % slot_name, slot_id == _slot)
+		else:
+			var caption := "%s %s\n+%d" % [GearBook.set_label(worn.set_id), GearBook.slot_label(worn.slot), worn.level]
+			slot.show_piece(caption, slot_id == _slot, GearBook.rarity_color(worn.rarity))
 
 
 func _refresh_stats() -> void:
